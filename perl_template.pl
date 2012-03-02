@@ -28,6 +28,7 @@ use warnings;
 
 #core Perl modules
 use Getopt::Long;
+use Pod::Usage;
 
 #CPAN modules
 
@@ -70,11 +71,11 @@ sub checkParams {
 
     # if no arguments supplied print the usage and exit
     #
-    exec("pod2usage $0") if (0 == (keys (%options) ));
+    pod2usage() if (0 == (keys (%options) ));
 
     # If the -help option is set, print the usage and exit
     #
-    exec("pod2usage $0") if $options{'help'};
+    pod2usage() if $options{'help'};
 
     # Compulsosy items
     #if(!exists $options{''} ) { print "**ERROR: $0 : \n"; exec("pod2usage $0"); }
